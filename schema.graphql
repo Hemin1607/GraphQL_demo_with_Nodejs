@@ -1,0 +1,47 @@
+type Query  {
+   test: String
+   greeting: String
+   student:[Student]
+   getOneStudent(id:ID!):Student
+   greetingWithAuth:String
+} 
+
+type College {
+   id:ID!
+   name:String
+   location:String
+   rating:Float
+}
+
+input SignUpInput {
+   email:String!
+   password:String!
+   firstName:String!
+}
+input LoginInput {
+   email:String!
+   password:String!
+}
+
+type Mutation {
+   createStudent(collegeId:ID,firstName:String,lastName:String,email:String,password:String):String
+   signUp(input:SignUpInput):String
+   deleteStudent(id:ID!):String
+   updateStudent(id:ID!,collegeId:ID,firstName:String,lastName:String,email:String,password:String):String
+   login(input :LoginInput):String
+}
+
+type Student {
+   id:ID!
+   firstName:String
+   lastName:String
+   fullName:String 
+   collegeId:String
+   email:String
+   collage : College
+}
+
+type Subscription {
+  newLink: String
+}
+

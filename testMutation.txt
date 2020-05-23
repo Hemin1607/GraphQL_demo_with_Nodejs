@@ -1,0 +1,125 @@
+
+mutation for login  
+----------------
+mutation doLogin($input: LoginInput) {
+  login(input: $input)
+}
+this is for variable tab
+{
+   "input":{
+      "email": "abc@abc.com",
+      "password": "pass@1234"
+   }
+}
+
+mutation for sign up 
+--------------
+mutation {
+   signUp(input:{
+     email: "abc@abc.com",
+      firstName: "kannan",
+      password: "pass@1234"
+  })
+}
+
+mutation doSignUp($input:SignUpInput) {
+   signUp(input:$input)
+}
+
+this is for variable tab
+{
+   "input":{
+      "email": "abc@abc",
+      "firstName": "kannan",
+      "password": "pass@1234"
+   }
+} 
+
+
+
+  
+create user
+-------------------
+mutation {
+   createStudent(collegeId:"col-2",firstName:"hemin",lastName:"patel",
+   email : "dv.sparkle016@gmail.com"
+  )
+}
+
+mutation createtest($collegeId :  ID, $firstName : String,$lastName :String,$email :String) {
+   createStudent(collegeId :$collegeId,
+    firstName:$firstName,
+    lastName:$lastName,
+    email : $email
+  )
+}
+in varibale tab
+{
+  "collegeId":"col-2",
+  "firstName":"hemin",
+  "lastName":"patel",
+   "email" : "patelhemin4477@gmail.com"
+}
+
+get one user
+-------------------
+{
+  getOneStudent(id:"S1001"){
+    id
+    firstName
+    lastName
+  }
+}
+
+update user
+----------------
+mutation updateStudent($id:ID!,$collegeId:ID,$firstName:String,$lastName:String,$email:String,$password:String) {
+   updateStudent(
+    id:$id,
+    collegeId :$collegeId,
+    firstName:$firstName,
+   lastName: $lastName,
+    email:$email,
+    password:$password
+  )
+}
+
+in varible tab
+{
+  "id":"B1HvaBwdE",
+    "collegeId" :"col-101",
+    "firstName":"hemin123",
+   "lastName": "patel1",
+    "email":"hp@gmail.com",
+    "password":"123"
+}
+
+delete user
+-----------
+mutation deleteStudent($id:ID!) {
+   deleteStudent(
+    id:$id
+  )
+}
+in varible tab
+{
+  "id":"S1MuAHv_V"
+}
+
+
+
+
+get all user  data
+-----------------------
+{
+ student {
+   id
+   firstName
+   collage {
+     id
+     name
+   }
+ }
+}
+
+
